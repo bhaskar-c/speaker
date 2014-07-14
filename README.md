@@ -15,3 +15,5 @@ Bu yazılım, .txt uzantılı bir kitabı açıyor. Ardından sizin belirlediği
 Betikler ve görevleri:
 markov.py -> Zincirleri oluşturan, girdileri alıp çıktıları veren, kısacası arkada görmediğiniz birçok işi yapan betik.
 konuşucu.py -> Tkinter arayüzünü oluşturan, ayarları kaydeden ve açan betik.
+
+YAZILIMIN ÇALIŞMASI İÇİN BULUNDUĞU DİZİNDE BİR .txt UZANTILI KİTAP OLMALIDIR.

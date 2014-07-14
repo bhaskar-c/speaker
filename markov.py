@@ -33,7 +33,7 @@ class markov:
                       "siz":"biz","biz":"siz"}
         self.ikinciller=["hocam","efendim","arkadaşım","ve","ya",
                          "mı","mi","mu","mü","da","ne","hangi",
-                         "ki"] #bu sözcüklere diğer sözcüklerden sonra bakılır
+                         "ki","evet","hayır"] #bu sözcüklere diğer sözcüklerden sonra bakılır
     def oku(self,girdi):
         çizelge=[a for a in girdi.split() if a]
         for s,a in enumerate(çizelge):

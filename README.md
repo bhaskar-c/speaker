@@ -1,19 +1,16 @@
-konusucu
+Translated from ORiginal Fork
 ========
 
-Markov zincirlerini kullanarak konuşur. Tkinter arayüzü de vardır.
+the speaker
 
-Özetleme yazılımımı bitirdikten sonra, bir süredir bu yazılım üzerinde çalışıyordum. Şimdi bitti ve yayınlıyorum. Yine ilginç bir tasarım ile karşınızdayım...
+He speaks using Markov chain. Tkinter interface are also available.
 
-Bu yazılım, .txt uzantılı bir kitabı açıyor. Ardından sizin belirlediğiniz zincir başına sözcük sayısı (ilerde açıklayacağım) ile Markov zincirleri oluşturuyor. Sonra sizinle konuşmaya hazır oluyor. İsterseniz "Ayarlar" sekmesinden yazılımın davranışlarını değiştirebilirsiniz.
+Summarizing software after I have finished, I was working on this software for a while. Now I'm over and I publish. Again I stand with an interesting design ...
 
+This software .txt extension opens a book. Then you specify the number of words per chain (I'll explain later) forms with Markov chains. Then he is ready to talk to you. If you like the "Settings" tab you can change the behavior of the software.
 
-Şu zincir başına sözcük sayısı ile ilgili bilgi vermek istiyorum. Çünkü yazılımında bununla ilgili verdiğim bilgiler yetersiz olabilir. Anlatayım: Zincir başına sözcük sayısı, bir diğer deyişle metnin kaçar kaçar bölünceğidir. Dolayısı ile; girdilerin, çıktıların kaçar kaçar denetleneceği, inceleneceğini de belirler. Bilmeniz gereken önemli bilgiler şunlar:
-1. Bu sayı düştükçe, yazılımın verdiği çıktıların değişkenliği gelişigüzelliği artar. Bu kimi zaman yazılımı daha eğlenceli yapabilmesine karşın, sayıyı düşşürdüğünüzde anlamsız, karmaşık çıktılar alıyorsanız; bu değeri yükseltmelisiniz.
-2. Bu sayı yükseldikçe yazılım daha yavaş çalışır. Hızı etkileyen en önemli etkenlerden biri budur. Yazılım yavaş çalışıyorsa, bunu düşürün.
+I want to give information about the number of words per the following chain. Because the information I have about this software may be insufficient. Let me explain: the number of words per chain is bölünceg escapes escapes in other words in the text. Thus; inputs, outputs will be supervised escapes escapes, also determine examined. Important information you need to know: 1. This number decreases, the variability of output given by the software randomness increases. Although this can sometimes be more fun software, you drop the meaningless number, you are getting complex output; You should raise this value. 2. This number increases, the software runs slower. This is one of the most important factors affecting the speed. If the software is running slowly, reduce it.
 
-Betikler ve görevleri:
-markov.py -> Zincirleri oluşturan, girdileri alıp çıktıları veren, kısacası arkada görmediğiniz birçok işi yapan betik.
-konuşucu.py -> Tkinter arayüzünü oluşturan, ayarları kaydeden ve açan betik.
+Scripts and tasks: markov.py -> Chain forming, entries that receive output, the script makes a lot of business in short, you do not see behind. konuşucu.py -> make up the Tkinter interface, which opens the script and save the settings.
 
-YAZILIMIN ÇALIŞMASI İÇİN BULUNDUĞU DİZİNDE BİR .txt UZANTILI KİTAP OLMALIDIR.
+The directory containing OPERATION OF THE SOFTWARE SHOULD BE A BOOK .txt extension.

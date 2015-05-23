@@ -43,39 +43,39 @@ class Uyg(Frame):
         self.Markov=markov(zS)
         self.Markov.oku(yazı)
     def hazırla(self):
-        self.master.title("Markov Konuşucusu")
+        self.master.title("Markov Speaker")
 
         self.seçke=Menu(self)
         ayarlarS=Menu(self.seçke,tearoff=0)
-        ayarlarS.add_command(label="Konuşmanın tümünü kopyala",
+        ayarlarS.add_command(label="Copy the entire speech",
                              command=self.kopyala)
-        ayarlarS.add_command(label="Konuşma geçmişini temizle",
+        ayarlarS.add_command(label="Clear conversation history",
                              command=self.temizle)
         ayarlarS.add_separator()
         self.asi=IntVar()
         self.asi.set(1)
-        ayarlarS.add_checkbutton(label="Akıllı sözcük İşleme",variable=self.asi, \
+        ayarlarS.add_checkbutton(label="Smart word processing",variable=self.asi, \
                                  onvalue=1,offvalue=0)
         self.ggs=IntVar()
         self.ggs.set(1)
-        ayarlarS.add_checkbutton(label="Gelişigüzel Seçim",variable=self.ggs, \
+        ayarlarS.add_checkbutton(label="random selection",variable=self.ggs, \
                                  onvalue=1,offvalue=0)
         self.ko=IntVar()
         self.ko.set(1)
-        ayarlarS.add_checkbutton(label="Konuya odaklanma",variable=self.ko, \
+        ayarlarS.add_checkbutton(label="Focus Subject",variable=self.ko, \
                                  onvalue=1,offvalue=0)
         ayarlarS.add_separator()
-        ayarlarS.add_command(label="Belge/Zincir seçimi",
+        ayarlarS.add_command(label="Document / Chain selection",
                              command=self.ayarla)
-        ayarlarS.add_command(label="Çıkış",command=self.master.destroy)
-        self.seçke.add_cascade(label="Ayarlar",menu=ayarlarS)
+        ayarlarS.add_command(label="Exit",command=self.master.destroy)
+        self.seçke.add_cascade(label="Settings",menu=ayarlarS)
         yardımS=Menu(self.seçke,tearoff=0)
-        yardımS.add_command(label="Akıllı Sözcük İşleme",command=lambda: self.bilgi(ASİ))
-        yardımS.add_command(label="Gelişigüzel Seçim",command=lambda: self.bilgi(GGS))
-        yardımS.add_command(label="Konuya odaklanma",command=lambda: self.bilgi(KO))
+        yardımS.add_command(label="Intelligent Word Processing",command=lambda: self.bilgi(ASİ))
+        yardımS.add_command(label="random selection",command=lambda: self.bilgi(GGS))
+        yardımS.add_command(label="Focus Subject",command=lambda: self.bilgi(KO))
         yardımS.add_separator()
-        yardımS.add_command(label="Bilgi",command=lambda: self.bilgi(BİLGİ))
-        self.seçke.add_cascade(label="Yardım",menu=yardımS)
+        yardımS.add_command(label="Information",command=lambda: self.bilgi(BİLGİ))
+        self.seçke.add_cascade(label="Help",menu=yardımS)
 
         self.master.config(menu=self.seçke)
         
@@ -99,9 +99,9 @@ class Uyg(Frame):
         self.girdi.bind("<Up>",self.yukarı)
         self.girdi.bind("<Down>",self.aşağı)
 
-        Button(self.master,text="İlet",command=self.iletim,relief=GROOVE,width=30).grid(row=2,column=3)
-        Button(self.master,text="Benim yerime bilgisayar yanıtlasın",command=self.bilgisayarYanıtlasın,bg="green",fg="white",relief=GROOVE).grid(row=3,column=0)
-        Button(self.master,text="Çıkış",command=self.master.destroy,bg="red",fg="white",relief=GROOVE).grid(row=3,column=3)
+        Button(self.master,text="transmission",command=self.iletim,relief=GROOVE,width=30).grid(row=2,column=3)
+        Button(self.master,text="You answered my place computer",command=self.bilgisayarYanıtlasın,bg="green",fg="white",relief=GROOVE).grid(row=3,column=0)
+        Button(self.master,text="Exit",command=self.master.destroy,bg="red",fg="white",relief=GROOVE).grid(row=3,column=3)
         self.grid_columnconfigure(0,weight=1)
         self.master.resizable(False,False)
 
@@ -179,7 +179,7 @@ class Uyg(Frame):
     def temizle(self):
         self.yazı.config(state=NORMAL)
         self.yazı.delete(1.0,END)
-        self.yazı.insert(END,strftime("Konuşma geçmişi temizlendi... Saat %H:%M, tarih %d.%m.%y \n")+"Kullanılan belge: "+belgeAdı+"\nZincir başına sözcük sayısı: "+str(ZincirS)+"\n\n","kızıl")
+        self.yazı.insert(END,strftime("Conversation history is cleared ... Time %H:%M, Date %d.%m.%y \n")+"The document used: "+belgeAdı+"\nThe number of words per chain: "+str(ZincirS)+"\n\n","kızıl")
         self.yazı.config(state=DISABLED)
     def ayarla(self):
         self.master.destroy()
@@ -203,11 +203,11 @@ class başlangıç(Frame):
                 
         
         self.grid()
-        self.master.title("Markov Konuşucusu Ayarlar")
-        Label(self.master,text="Kullanılacak belgeyi seçiniz:").grid(row=0,column=0)
+        self.master.title("Speakers Settings")
+        Label(self.master,text="Select the certificate to be used:").grid(row=0,column=0)
         self.çs=Listbox(self.master,selectmode=SINGLE,width=30)
         if not self.belgeler:
-            self.bilgi(["Sorun","Yazılımın bulunduğu konumda hiç .txt belgesi yok.\nYazılımın çalışması için .txt uzantılı bir belge gereklidir.\nYazılım kapatılacak."])
+            self.bilgi(["Issue","No .txt document at the location where the software is located. \ n an extension .txt document to the operation of the software is required. \ n The software will be closed."])
             self.master.destroy()
         for s,b in enumerate(self.belgeler):
             self.çs.insert(s,b)
@@ -216,12 +216,12 @@ class başlangıç(Frame):
         if not self.çs.curselection():
             self.çs.selection_set(0)
         self.çs.grid(row=1,column=0,columnspan=2)
-        Label(self.master,text="Zincir başına düşen sözcük sayısı:").grid(column=0,row=2)
+        Label(self.master,text="The number of words per chain:").grid(column=0,row=2)
         self.zS=DoubleVar()
         self.zS.set(ilkZS if ilkZS else 2)
         Scale(self.master,variable=self.zS,orient=HORIZONTAL,from_=1,to=5).grid(row=3,column=0)
-        Button(self.master,relief=GROOVE,text="Bu nedir?",command=lambda: self.bilgi(["Zincir başına düşen sözcük sayısı","Bu değer bir zincirde kaç tane sözcüğün bulunacağıdır.\nDaha düşük değerler gelişigüzelliği arttırırken\nyüksek değerler gelişigüzelliği düşürür."])).grid(row=3,column=1)
-        Button(self.master,relief=GROOVE,text="Başlat",command=self.başlat).grid(row=4,column=0,columnspan=2)
+        Button(self.master,relief=GROOVE,text="What is this?",command=lambda: self.bilgi(["The number of words per chain, "" This value defines how many words you'll find in a chain. \ NA low value while increasing casualness \ n High values reduce promiscuity."])).grid(row=3,column=1)
+        Button(self.master,relief=GROOVE,text="Start",command=self.başlat).grid(row=4,column=0,columnspan=2)
 
         self.master.focus_force()
         self.çs.focus_set()
@@ -231,7 +231,7 @@ class başlangıç(Frame):
         ad=(self.belgeler[self.çs.curselection()[0]])
         sy=int(self.zS.get())
         self.master.destroy()
-        with open("konuşucu.ayarlar","w") as belge:
+        with open("Speaker Settings","w") as belge:
             belge.write(ad+"\n"+str(sy))
             
         UygBaşlat(ad,sy)

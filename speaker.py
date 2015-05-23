@@ -1,5 +1,5 @@
-#Markov zincirleriyle konuşan yazılım için arayüz...
-#İlker Işık
+#Speaking with Markov chain - Tkinter Interface
+
 
 from tkinter import *
 from markov import *
@@ -7,28 +7,29 @@ from sys import exit as çık
 from time import strftime
 from glob import glob
 
-BİLGİ=["Bilgi",("Markov Konuşucusu\n"+
-                    "Markov zincirlerini kullanarak belli bir yazıyı temel "+
-                    "alarak konuşabilen bir yazılım. Değişik metinlerden "+
-                            "yararlanılabilir.\nYapım: İlker IŞIK\n2014")]
-ASİ=["Akıllı Sözcük İşleme",("Bu basit özellik, yazılımın sözcükleri doğru\n"+
-                             "biçimde yorumlamasını sağlar.\n"+
-                             "Adımsıları çıkarmak, adılları düzeltmek\n"+
-                             "gibi işlevleri vardır. Üstelik yazılımın\n"+
-                             "yanıtlama hızında da neredeyse hiç fark yapmaz.\n"+
-                             "\nBunu kapatmanızın tek nedeni gelişmiş bir \n"+
-                             "kullanıcı olup yazılımı ayıklamak istemeniz olabilir.\n")]
-GGS=["Gelişigüzel Seçim","""Bu özellik bir sözcüğe verilecek yanıtın nasıl
-seçileceğını belirler. Kapalıysa, verilebilecek ilk
-yanıt verilir; açıksa tüm verilebilecek yanıtlar
-toplanıp gelişigüzel seçilen bir yanıt verilir.
+BİLGİ=["Bilgi",("Markov Speaker\n"+
+                    "Markov chains using some basic text "+
+                    "a software that can talk. The various texts "+
+                            "exploitalble")]
+ASİ=["Akıllı Sözcük İşleme",("This simple feature, the software right words\n"+
+                             "format allows the interpretation.\n"+
+                             "Stepless remove, correct pronouns\n"+
+                             "There are such functions. Moreover, the software's\n"+
+                             "It made almost no difference in the rate can not answer.\n"+
+                             "\nThe only reason it's closing is an advanced \n"+
+                             "The user can extract the software you want.\n")]
+GGS=["Gelişigüzel Seçim","""The answer will be given in a word how this feature
+It determines whether selected. If it is closed, which may be first
+The answer; answers that could all be turned on
+collected is given a randomly selected responses.
 
-Bu özellik, her ne kadar yazılımı daha eğlenceli
-kılsa da hızı yaklaşık 25 kat düşürmektedir.
-Buna karşın yazılım sözcük başına 1 saniyeden
-az bekletmektedir."""]
+This feature, although the software more fun
+Also, hell rate is about 25 times lower.
+However, words alone software than 1 second
+It is waiting less."""]
 
-KO=["Konuya odaklanma","""Bu açıkken, bilgisayar sizi yanıtladığında, bilgisayarın sözünü sürdürmesini istiyorsanız hiçbir şey yazmadan ileterek ("Enter" düğmesi) bilgisayarın sözünü sürdürmesini sağlayabilirsiniz."""]
+KO=["Konuya odaklanma","""
+When this is turned on, the computer respond to you, if you want to continue without writing anything passing mention of the computer ("Enter" button) You can keep the promise of the computer."""]
 class Uyg(Frame):
     def __init__(self,yazı,zS,abi=None):
         Frame.__init__(self,abi)
